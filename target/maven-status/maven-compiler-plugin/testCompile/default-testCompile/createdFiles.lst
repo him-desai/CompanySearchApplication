@@ -1,0 +1,6 @@
+com/lnrs/service/HTTPClientTest.class
+com/lnrs/util/FilterUtilsTest.class
+com/lnrs/service/OfficerServiceImplTest.class
+com/lnrs/CompanysearchApplicationTests.class
+com/lnrs/CompanyControllerTest.class
+com/lnrs/service/CompanyServiceImplTest.class

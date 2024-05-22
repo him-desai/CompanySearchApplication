@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OfficerServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">companysearch</a> &gt; <a href="index.source.html" class="el_package">com.lnrs.service</a> &gt; <span class="el_source">OfficerServiceImpl.java</span></div><h1>OfficerServiceImpl.java</h1><pre class="source lang-java linenums">
+package com.lnrs.service;
+
+import com.lnrs.constant.AppConstants;
+import com.lnrs.mapper.OfficerList;
+import com.lnrs.mapper.OfficerMapper;
+import lombok.Getter;
+import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+@Getter
+<span class="nc" id="L17">@Setter</span>
+public class OfficerServiceImpl implements OfficerService {
+
+<span class="nc" id="L20">    private final String officerSearchURL;</span>
+
+    @Autowired
+<span class="nc" id="L23">    HTTPClient httpClient;</span>
+    @Autowired
+<span class="nc" id="L25">    OfficerMergerService officerMergerService;</span>
+
+    @Autowired
+<span class="fc" id="L28">    public OfficerServiceImpl( @Value(AppConstants.OFFICER_SEARCH) String officerSearchURL,HTTPClient httpClient) {</span>
+<span class="fc" id="L29">        this.officerSearchURL = officerSearchURL;</span>
+<span class="fc" id="L30">        this.httpClient = httpClient;</span>
+<span class="fc" id="L31">    }</span>
+    public OfficerList officerSearchByCompanyNumber(String companyId) {
+<span class="fc" id="L33">        ResponseEntity&lt;String&gt; officersResponse = null;</span>
+
+<span class="pc bpc" id="L35" title="2 of 4 branches missed.">        if (StringUtils.isNotBlank(companyId) &amp;&amp; StringUtils.isNotBlank(companyId)) {</span>
+<span class="fc" id="L36">            officersResponse = httpClient.get(officerSearchURL+companyId);</span>
+        }
+<span class="fc" id="L38">        return OfficerMapper.mapToOfficer(officersResponse.getBody());</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

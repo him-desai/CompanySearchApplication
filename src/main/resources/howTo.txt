@@ -1,0 +1,9 @@
+First I will Write Repo/BackEnd layer to Call API and to get the data.
+Then I will convert this data into JAVA Object.
+Then I will Merge the Response by filtering Officer whose resign is null.
+Then I will Store this data to database.
+I will write the test cases along side so it will be helpful.
+ ( Now After Ending the session I can see  many
+tests cases are still left but due to time issue I will keep basic tests for now to give idea that
+I have understanding of it. - Himanshu
+
